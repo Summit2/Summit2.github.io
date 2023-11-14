@@ -1,0 +1,13 @@
+
+/* Стилизация контейнера для кнопки */
+.delete-button {
+    display: flex;
+    justify-content: flex-end; /* Разместить кнопку в правом верхнем углу карточки */
+    border: none; /* Убрать границу кнопки */
+    cursor: pointer; /* Курсор при наведении на кнопку */
+    opacity: 0; 
+}
+
+.delete-button:hover {
+    opacity: 1; 
+}

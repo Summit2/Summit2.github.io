@@ -1,0 +1,54 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html> -->
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+  <meta charset="utf-8">
+   
+    <title class>{% block heading %}{% endblock %}</title>
+
+    <!-- подгружаем стили -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/search_bar.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/delete_button.css' %}"> 
+    <!-- ставим стиль для фона -->
+        <style>
+          html, body {
+            height: 100%; /* Задайте высоту 100%, чтобы обеспечить цвет фона для всей страницы */
+            margin: 0; /* Уберите отступы по умолчанию */
+            padding: 0; /* Уберите внутренние отступы по умолчанию */
+          }
+          body {
+            background-color: bisque;
+          }
+          b{
+            font-size: 50px;
+          }
+        
+  
+        </style>
+</head>
+  <body>
+  <!-- добавляем заглавие  -->
+  {% block title %} {% endblock %}
+  
+  <!-- добавляем сортировку -->
+    {% block find_bar %} {% endblock %}
+
+      <!-- в файле all_cargo.html лежит блок content -->
+      {% block content %}{% endblock %}
+
+  </body>
+</html>

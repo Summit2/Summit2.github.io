@@ -1,0 +1,25 @@
+<!-- здесь мы делаем импорт конкретного заказа по id по ./order/id -->
+
+{% extends 'base.html' %}
+
+{% block title %}
+<b class="font">
+    {{data.item.title}}
+</b>
+{% endblock %}
+
+{% block content %}
+
+    <div class="font-ordinary">
+        
+        <br>
+        {% load static %}
+        <img src="{% static data.item.image_url %}" class ="images">
+        <br>
+    Вес: {{data.item.weight}} г.
+    <br>
+       Описание: {{data.item.description}}
+
+    </div>
+
+{% endblock %}

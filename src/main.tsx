@@ -1,17 +1,26 @@
 import React, { FC, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import { 
+  BrowserRouter as Router,
+  Route,
+  Routes,
+   } from 'react-router-dom'
+
+// user imports
 import '/css/search_bar.css';
 import '/css/style.css';
+// import  RenderCards from './components/CargoList.tsx'
+import CargoList from './components/CargoList.tsx';
 
 
-
-import {getCargoList} from './components/CargoList.tsx'
 const router = createBrowserRouter([
   {
     path: '/cargo',
     // element: <h1>Это наша стартовая страница</h1>,
+    // element: <div> {CargoList} </div>
   },
   {
     path: '/orders',
@@ -23,12 +32,24 @@ const data = { input: 'initialValue' }; // Replace 'initialValue' with your actu
 
 
 async function renderApp() {
-  const cargoList = await getCargoList();
-
+  // const cargoList = await getCargoList();
+  // console.log(cargoList.length)
   ReactDOM.render(
     <React.StrictMode>
       {renderFindBar()}
-      {cargoList.data[6].title}
+      
+      {/* {CargoList}  */}
+
+
+    <Router>
+   
+    <Routes>
+      <Route path="/cargo/" Component={CargoList}/>
+     
+    </Routes>
+    </Router>
+  
+
       <RouterProvider router={router} />
     </React.StrictMode>,
     document.getElementById('root')
@@ -36,6 +57,16 @@ async function renderApp() {
 }
 
 renderApp();
+
+
+
+
+
+
+
+
+
+
 
 function renderFindBar() {
   return (

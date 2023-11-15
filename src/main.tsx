@@ -15,11 +15,11 @@ import '/css/style.css';
 import '/css/delete_button.css';
 // import  RenderCards from './components/CargoList.tsx'
 import CargoList from './components/CargoList.tsx';
-
-
+import ExactCargo from './components/CargoDetails'
+import BreadCrumbs from './components/BreadCrumbs.tsx'
 const router = createBrowserRouter([
   {
-    path: '/cargo',
+    path: '/cargo/',
     // element: <h1>Это наша стартовая страница</h1>,
     // element: <div> {CargoList} </div>
   },
@@ -37,14 +37,15 @@ async function renderApp() {
   // console.log(cargoList.length)
   ReactDOM.render(
     <React.StrictMode>
+      <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
       {renderFindBar()}
       
       {/* {CargoList}  */}
-
-
     <Router>
-   
+    
+    <BreadCrumbs />
     <Routes>
+      <Route path="/cargo/:id_cargo" Component={ExactCargo} />
       <Route path="/cargo/" Component={CargoList}/>
      
     </Routes>

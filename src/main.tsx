@@ -12,6 +12,7 @@ import {
 // user imports
 import '/css/search_bar.css';
 import '/css/style.css';
+import '/css/delete_button.css';
 // import  RenderCards from './components/CargoList.tsx'
 import CargoList from './components/CargoList.tsx';
 

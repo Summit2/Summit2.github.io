@@ -11,17 +11,21 @@ import {
 
 // user imports
 import '/css/search_bar.css';
-import '/css/style.css';
+import '/css/my_style.css';
 import '/css/delete_button.css';
-// import  RenderCards from './components/CargoList.tsx'
+
 import CargoList from './components/CargoList.tsx';
 import ExactCargo from './components/CargoDetails'
 import BreadCrumbs from './components/BreadCrumbs.tsx'
+import './components/BreadCrumbs.css'
+import Navigation_Bar from './components/NaviBar.tsx'
+
+
 const router = createBrowserRouter([
   {
     path: '/cargo/',
-    // element: <h1>Это наша стартовая страница</h1>,
-    // element: <div> {CargoList} </div>
+    element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
+    // element: <div> {renderFindBar()} </div>
   },
   {
     path: '/orders',
@@ -33,26 +37,29 @@ const data = { input: 'initialValue' }; // Replace 'initialValue' with your actu
 
 
 async function renderApp() {
-  // const cargoList = await getCargoList();
-  // console.log(cargoList.length)
+ 
   ReactDOM.render(
     <React.StrictMode>
-      <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
-      {renderFindBar()}
+      
       
       {/* {CargoList}  */}
+      <RouterProvider router={router} />
+      <div> {renderFindBar()} </div>
+      
     <Router>
-    
+      
+    <Navigation_Bar />
     <BreadCrumbs />
     <Routes>
-      <Route path="/cargo/:id_cargo" Component={ExactCargo} />
-      <Route path="/cargo/" Component={CargoList}/>
+    <Route path="/cargo/" element={<CargoList />}/>
+    <Route path="/cargo/:id_cargo/" element={<ExactCargo />} />
+      
      
     </Routes>
     </Router>
   
 
-      <RouterProvider router={router} />
+      
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -19,8 +19,13 @@ const ExactCargo: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:8000/cargo/${id_cargo}/`);
-      setCargoItem(response.data);
+      try {
+        const response = await axios.get(`http://localhost:8000/cargo/${id_cargo}/`);
+        setCargoItem(response.data);
+      } catch (error) {
+        console.error('Error fetching cargo:', error);
+        // Handle the error gracefully, e.g., display an error message to the user
+      }
     };
 
     fetchData();
@@ -32,13 +37,15 @@ const ExactCargo: React.FC = () => {
 
   return (
     <div>
-        <div className="images">
-      <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} alt={cargoItem.title} width="400" height="500" />
+      <div className="images">
+        <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} alt={cargoItem.title} />
       </div>
+      <div>
         Вес: {cargoItem.weight} г.
-        
-       Описание: {cargoItem.description}
-
+      </div>
+      <div>
+        Описание: {cargoItem.description}
+      </div>
     </div>
   );
 };

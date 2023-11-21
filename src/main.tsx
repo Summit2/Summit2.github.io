@@ -33,7 +33,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-const data = { input: 'initialValue' }; // Replace 'initialValue' with your actual initial value
 
 
 async function renderApp() {
@@ -64,34 +63,3 @@ async function renderApp() {
 
 renderApp();
 
-
-
-
-
-
-
-
-
-
-
-// function renderFindBar() {
-//   return (
-//     <>
-//       <div className="font-ordinary">
-//         <form action="" method="get">
-//           <label htmlFor="text">Поиск по названию</label>
-//           <input id="text" name="good_item" type="text" className="search-bar" value={data.input} />
-//           <input type="submit" value="Поиск" className="search-button" />
-//         </form>
-//       </div>
-//       <br />
-//     </>
-//   );
-// }
-
-// const SearchButton: FC = () => {
-//   // Объявление новой переменной состояния «count»
-//   const [count, setCount] = useState(0);
-
-//   return <div onClick={() => setCount(count => count++)}>{count}</div>;
-// };

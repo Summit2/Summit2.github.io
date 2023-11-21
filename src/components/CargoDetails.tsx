@@ -13,14 +13,17 @@ interface CargoItem {
   image_binary: Buffer;
 }
 
-const ExactCargo: React.FC = () => {
+const CargoDetails: React.FC = () => {
   const [cargoItem, setCargoItem] = useState<CargoItem | null>(null);
   const { id_cargo } = useParams<{ id_cargo: string }>();
 
   useEffect(() => {
+    console.log('Fetching cargo for id:', id_cargo);
+
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/cargo/${id_cargo}/`);
+        console.log('Cargo response:', response.data);
         setCargoItem(response.data);
       } catch (error) {
         console.error('Error fetching cargo:', error);
@@ -50,4 +53,4 @@ const ExactCargo: React.FC = () => {
   );
 };
 
-export default ExactCargo;
+export default CargoDetails;

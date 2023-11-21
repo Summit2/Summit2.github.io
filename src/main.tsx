@@ -18,13 +18,13 @@ import CargoList from './components/CargoList.tsx';
 import ExactCargo from './components/CargoDetails'
 import BreadCrumbs from './components/BreadCrumbs.tsx'
 import './components/BreadCrumbs.css'
-import Navigation_Bar from './components/NaviBar.tsx'
-
+// import Navigation_Bar from './components/NaviBar.tsx'
+import NavigationAndSearchBar from './components/NaviBar';
 
 const router = createBrowserRouter([
   {
     path: '/cargo/',
-    element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
+    // element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
     // element: <div> {renderFindBar()} </div>
   },
   {
@@ -41,14 +41,11 @@ async function renderApp() {
   ReactDOM.render(
     <React.StrictMode>
       
-      
-      {/* {CargoList}  */}
       <RouterProvider router={router} />
-      <div> {renderFindBar()} </div>
-      
+      <NavigationAndSearchBar />
     <Router>
       
-    <Navigation_Bar />
+    
     <BreadCrumbs />
     <Routes>
     <Route path="/cargo/" element={<CargoList />}/>
@@ -77,24 +74,24 @@ renderApp();
 
 
 
-function renderFindBar() {
-  return (
-    <>
-      <div className="font-ordinary">
-        <form action="" method="get">
-          <label htmlFor="text">Поиск по названию</label>
-          <input id="text" name="good_item" type="text" className="search-bar" value={data.input} />
-          <input type="submit" value="Поиск" className="search-button" />
-        </form>
-      </div>
-      <br />
-    </>
-  );
-}
+// function renderFindBar() {
+//   return (
+//     <>
+//       <div className="font-ordinary">
+//         <form action="" method="get">
+//           <label htmlFor="text">Поиск по названию</label>
+//           <input id="text" name="good_item" type="text" className="search-bar" value={data.input} />
+//           <input type="submit" value="Поиск" className="search-button" />
+//         </form>
+//       </div>
+//       <br />
+//     </>
+//   );
+// }
 
-const SearchButton: FC = () => {
-  // Объявление новой переменной состояния «count»
-  const [count, setCount] = useState(0);
+// const SearchButton: FC = () => {
+//   // Объявление новой переменной состояния «count»
+//   const [count, setCount] = useState(0);
 
-  return <div onClick={() => setCount(count => count++)}>{count}</div>;
-};
+//   return <div onClick={() => setCount(count => count++)}>{count}</div>;
+// };

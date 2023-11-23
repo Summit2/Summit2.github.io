@@ -24,6 +24,16 @@ import NavigationAndSearchBar from './components/NaviBar';
 const router = createBrowserRouter([
   {
     path: '/cargo/',
+    element:  <>
+        <NavigationAndSearchBar />
+        <CargoList />
+      </>
+    // element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
+    // element: <div> {renderFindBar()} </div>
+  },
+  {
+    path: '/cargo/:id_cargo/',
+    element: <ExactCargo />
     // element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
     // element: <div> {renderFindBar()} </div>
   },
@@ -41,21 +51,7 @@ async function renderApp() {
     <React.StrictMode>
       
       <RouterProvider router={router} />
-      <NavigationAndSearchBar />
-    <Router>
-      
-    
-    <BreadCrumbs />
-    <Routes>
-    <Route path="/cargo/" element={<CargoList />}/>
-    <Route path="/cargo/:id_cargo/" element={<ExactCargo />} />
-      
-     
-    </Routes>
-    </Router>
-  
-
-      
+ 
     </React.StrictMode>,
     document.getElementById('root')
   );

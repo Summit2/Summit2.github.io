@@ -21,7 +21,7 @@ function NavigationAndSearchBar() {
   };
 
   return (
-    <Router>
+    // <Router>
       <Container>
         <Row>
           <Col>
@@ -62,7 +62,7 @@ function NavigationAndSearchBar() {
           </Col>
         </Row>
       </Container>
-    </Router>
+    // </Router>
   );
 }
 

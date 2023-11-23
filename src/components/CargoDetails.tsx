@@ -23,11 +23,10 @@ const CargoDetails: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/cargo/${id_cargo}/`);
-        console.log('Cargo response:', response.data);
+        // console.log('Cargo response:', response.data);
         setCargoItem(response.data);
       } catch (error) {
-        console.error('Error fetching cargo:', error);
-        // Handle the error gracefully, e.g., display an error message to the user
+        // console.error('Error fetching cargo:', error);
       }
     };
 
@@ -39,17 +38,20 @@ const CargoDetails: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="images">
-        <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} alt={cargoItem.title} />
+    <>
+      <div className="current-image">
+        <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} />
       </div>
+      <div className='font'>
       <div>
+      {cargoItem.title}
         Вес: {cargoItem.weight} г.
       </div>
       <div>
         Описание: {cargoItem.description}
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

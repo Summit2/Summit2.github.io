@@ -39,14 +39,21 @@ const CargoDetails: React.FC = () => {
 
   return (
     <>
+      {cargoItem.title}
       <div className="current-image">
-        <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} />
+      <img src={`data:image/jpeg;base64,${cargoItem.image_binary.toString('base64')}`} style={{ height: '300px', width: '400px' }} />
+
+
+
       </div>
       <div className='font'>
       <div>
-      {cargoItem.title}
+      
+      <br></br>
         Вес: {cargoItem.weight} г.
       </div>
+      <br></br>
+      
       <div>
         Описание: {cargoItem.description}
       </div>

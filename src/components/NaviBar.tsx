@@ -26,18 +26,16 @@ function NavigationAndSearchBar() {
         <Row>
           <Col>
             <Navbar bg="white" expand="lg">
-              <Navbar.Brand as={Link} to="/">Выбор грузов </Navbar.Brand>
+              <Navbar.Brand as={Link} to="/cargo">Выбор грузов </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link as={Link} to="/cargo/">Главная</Nav.Link>
-                  <NavDropdown title="Экспертизы" id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/expertise/1">Проверка подлинности</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/expertise/2">Заказ копии</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/expertise/3">Определение художника</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/expertise/4">Определение эпохи</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/expertise/5">Реставрация</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/expertise/6">Заказ на разбор картины</NavDropdown.Item>
+                  <Nav.Link as={Link} to="/cargo">Главная</Nav.Link>
+                  <NavDropdown title="Груз" id="basic-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/cargo/12">Обеденный набор 1</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/cargo/14">Запасная одежда</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/cargo/15">Обеденный набор</NavDropdown.Item>
+                    
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>

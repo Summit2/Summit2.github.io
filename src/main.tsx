@@ -18,7 +18,6 @@ import CargoList from './components/CargoList.tsx';
 import ExactCargo from './components/CargoDetails'
 import BreadCrumbs from './components/BreadCrumbs.tsx'
 import './components/BreadCrumbs.css'
-// import Navigation_Bar from './components/NaviBar.tsx'
 import NavigationAndSearchBar from './components/NaviBar';
 
 const router = createBrowserRouter([
@@ -26,14 +25,23 @@ const router = createBrowserRouter([
     path: '/cargo/',
     element:  <>
         <NavigationAndSearchBar />
+        <BreadCrumbs />
         <CargoList />
+        
+
       </>
     // element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
     // element: <div> {renderFindBar()} </div>
   },
   {
     path: '/cargo/:id_cargo/',
-    element: <ExactCargo />
+    element: <>
+    <NavigationAndSearchBar />
+    <BreadCrumbs />
+    <ExactCargo />
+    
+    </>
+
     // element: <div className = "font"><b>Cписок грузов для отправки на Starship</b></div>
     // element: <div> {renderFindBar()} </div>
   },

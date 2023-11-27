@@ -9,6 +9,7 @@ export default defineConfig({
     //   '/api': 'http://localhost:8080',
     // },
   },
+  base: "/my-app/",
   plugins: [react()],
   
 })

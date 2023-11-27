@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { MockCargoItem , mock_data } from './data.ts'
 
 interface CargoItem {
   pk: number;
@@ -19,7 +20,7 @@ const CargoList = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const fetchData = async (filter: string | null = null) => {
     try {
       let url = "http://localhost:8000/cargo/";
 
@@ -34,32 +35,19 @@ const CargoList = () => {
       console.error("Error fetching data:", error);
       setError("An error occurred while fetching data.");
 
-      // If there's an error, try fetching from local data.json after 5 seconds
-      setTimeout(async () => {
-        try {
-          const response = await axios.get('my-app/src/components/data.json');
-          setData(response.data.data);
-          // console.log(jsonData)
-          
-
-          setLoading(false);
-          setError(null);
-        } catch (localError) {
-          console.error("Error fetching local data:", localError);
-          setLoading(false);
-          setError("An error occurred while fetching local data.");
-        }
-      }, 4000);
+    
+      setData(mock_data);
+      setLoading(false);
+      setError(null);
+        
+      
     } finally {
       setLoading(false);
     }
   };
 
-  const handleFilterChange = (filter: string) => {
+  const handleFilter = (filter: string) => {
     // Perform a PUT request to update the filter on the server
-    // Adjust the endpoint and payload accordingly
-    console.log('filter changed');
-
     axios.put("http://localhost:8000/cargo/", null, {
       params: { filter },
       headers: {
@@ -68,7 +56,7 @@ const CargoList = () => {
     })
       .then((response) => {
         // After the PUT request is successful, trigger the GET request
-        setData(response.data.data);
+        fetchData(filter);
         // Update the URL with the selected filter
         navigate(`/cargo?filter=${filter}`);
       })
@@ -77,6 +65,7 @@ const CargoList = () => {
         // Handle the error, e.g., show a notification to the user
       });
   };
+  
 
   useEffect(() => {
     fetchData();
